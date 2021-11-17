@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+class Hello
+{
+    public:
+  char str[20];
+  Hello()
+  {
+      
+  }
+  Hello(char string[])
+  {
+      strcpy(this->str,string);
+  }
+  Hello operator +(Hello &obj2);
+};
+
+Hello Hello::operator +(Hello &obj2)
+{
+    Hello temp;
+    strcat(this->str,obj2.str);
+    strcpy(temp.str,this->str);
+    return temp;
+}
+int main()
+{
+    Hello obj1,obj2,obj3;
+    
+    char str1[10]="hello";
+    char str2[10]="sujata";
+    
+    obj1=Hello(str1);
+    obj2=Hello(str2);
+    
+    cout<<obj1.str<<endl;
+    cout<<obj2.str<<endl;
+    
+    obj3=obj1+obj2;
+    
+    cout<<obj3.str<<endl;
+    return 0;
+}
