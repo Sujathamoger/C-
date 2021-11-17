@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+class Hello
+{
+    char *str;
+    public:
+    Hello(char *s1)
+    {
+        str=new char[7];
+        str=s1;
+    }
+    Hello(Hello &obj1)
+    {
+        str=new char[7];
+        str=obj1.str;
+    }
+    void display()
+    {
+        cout<<str<<endl;
+    }
+};
+int main()
+{
+    char name[7]="sujata";
+    //char *ptr=name;
+    Hello obj1(name);
+    Hello obj2=obj1;
+    
+    obj1.display();
+    obj2.display();
+    return 0;
+}
